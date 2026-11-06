@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10251d">
+  <meta name="description" content="Nossa contagem regressiva para as férias e o Natal, em 23 de dezembro de 2026.">
+  <title>Falta pouco para o nosso Natal ❤️</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <style>
+    :root { color-scheme: dark; --pine:#10251d; --pine2:#18372b; --cream:#fff5df; --gold:#f4d58a; --red:#bd4c4c; }
+    * { box-sizing:border-box }
+    body {
+      margin:0; min-height:100vh; display:grid; place-items:center; padding:24px;
+      color:var(--cream); font-family: ui-rounded, "Trebuchet MS", system-ui, sans-serif;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(244,213,138,.13), transparent 45%),
+        radial-gradient(circle at 12% 78%, rgba(189,76,76,.12), transparent 28%),
+        linear-gradient(145deg,#0b1914,var(--pine) 48%,#142e23);
+      overflow-x:hidden;
+    }
+    body:before, body:after { content:"✦  ·  ✧     ·       ✦     ·   ✧"; position:fixed; color:#f4d58a55; letter-spacing:18px; font-size:18px; pointer-events:none; }
+    body:before { top:8%; left:4%; transform:rotate(-12deg) }
+    body:after { bottom:8%; right:2%; transform:rotate(12deg) }
+    .wrap { width:min(100%,760px); text-align:center; position:relative; }
+    .lights { display:flex; justify-content:center; gap:22px; margin:0 auto 24px; }
+    .bulb { width:10px;height:15px;border-radius:50% 50% 45% 45%; background:#f4d58a; box-shadow:0 0 16px currentColor; color:#f4d58a; animation:glow 1.8s infinite alternate; }
+    .bulb:nth-child(2n){background:#d66c67;color:#d66c67;animation-delay:.5s}
+    .bulb:nth-child(3n){background:#8dbb91;color:#8dbb91;animation-delay:1s}
+    @keyframes glow { from{opacity:.55;filter:brightness(.8)} to{opacity:1;filter:brightness(1.4)} }
+    .eyebrow { color:var(--gold); text-transform:uppercase; letter-spacing:.22em; font-size:.75rem; font-weight:800; }
+    h1 { font-family: Georgia,serif; font-size:clamp(2.4rem,8vw,4.8rem); line-height:1.04; margin:14px 0 12px; font-weight:500; }
+    h1 span { color:var(--gold); font-style:italic; }
+    .subtitle { color:#e8dfcb; font-size:clamp(1rem,3vw,1.2rem); line-height:1.6; max-width:550px; margin:0 auto; }
+    .date { display:inline-block; margin:24px 0 22px; padding:9px 18px; border:1px solid #f4d58a66; border-radius:999px; color:var(--gold); font-weight:700; letter-spacing:.04em; background:#ffffff08; }
+    .countdown { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:10px 0 24px; }
+    .unit { padding:20px 8px 16px; border:1px solid #f4d58a38; border-radius:18px; background:linear-gradient(160deg,#ffffff12,#ffffff05); box-shadow:0 12px 35px #0002; }
+    .number { display:block; font-size:clamp(2rem,8vw,4rem); font-weight:800; line-height:1; color:#fff8e9; font-variant-numeric:tabular-nums; }
+    .label { display:block; margin-top:9px; color:#d9c9a7; text-transform:uppercase; letter-spacing:.12em; font-size:.68rem; }
+    .message { color:#e8dfcb; line-height:1.7; margin:8px auto 24px; max-width:560px; }
+    .actions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
+    button { border:0; cursor:pointer; border-radius:999px; padding:14px 22px; font:700  .95rem system-ui; transition:transform .15s,filter .15s; }
+    button:hover { transform:translateY(-2px); filter:brightness(1.08) }
+    .primary { background:var(--gold); color:#253326; }
+    .secondary { background:#ffffff12; color:var(--cream); border:1px solid #ffffff30; }
+    .footer { margin-top:34px; color:#b8b5a5; font-size:.78rem; }
+    .heart { color:#d66c67; }
+    @media(max-width:480px){ body{padding:22px 16px}.countdown{gap:7px}.unit{padding:17px 3px 14px;border-radius:13px}.label{font-size:.58rem;letter-spacing:.06em}.lights{gap:16px} }
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="lights" aria-hidden="true"><i class="bulb"></i><i class="bulb"></i><i class="bulb"></i><i class="bulb"></i><i class="bulb"></i><i class="bulb"></i><i class="bulb"></i></div>
+    <div class="eyebrow">Uma contagem regressiva a dois</div>
+    <h1>Falta pouco para<br><span>o nosso Natal!</span></h1>
+    <p class="subtitle">As férias estão chegando. Que venha o descanso, os momentos juntinhos e a magia do Natal. ❤️</p>
+    <div class="date">🎄 23 de dezembro de 2026 🎄</div>
+
+    <section class="countdown" aria-label="Contagem regressiva">
+      <div class="unit"><span class="number" id="days">--</span><span class="label">Dias</span></div>
+      <div class="unit"><span class="number" id="hours">--</span><span class="label">Horas</span></div>
+      <div class="unit"><span class="number" id="minutes">--</span><span class="label">Minutos</span></div>
+      <div class="unit"><span class="number" id="seconds">--</span><span class="label">Segundos</span></div>
+    </section>
+
+    <p class="message" id="message">Cada segundo é um pouquinho mais perto de aproveitar esse tempo juntos. ✨</p>
+    <div class="actions">
+      <button class="primary" id="whatsapp">💬 Compartilhar no WhatsApp</button>
+      <button class="secondary" id="share">↗ Compartilhar</button>
+    </div>
+    <div class="footer">Feito com carinho para contar os dias até a nossa pausa especial <span class="heart">♥</span></div>
+  </main>
+  <script>
+    // A contagem usa o horário local do aparelho e considera o início de 23/12/2026.
+    const target = new Date(2026, 11, 23, 0, 0, 0);
+    const pad = n => String(n).padStart(2, "0");
+    function updateCountdown() {
+      const diff = target.getTime() - Date.now();
+      if (diff <= 0) {
+        ["days","hours","minutes","seconds"].forEach(id => document.getElementById(id).textContent = "00");
+        document.getElementById("message").textContent = "Chegou o nosso dia! Boas férias e um Natal cheio de amor! 🎅❤️";
+        return;
+      }
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const minutes = Math.floor((diff % 3600000) / 60000);
+      const seconds = Math.floor((diff % 60000) / 1000);
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = pad(hours);
+      document.getElementById("minutes").textContent = pad(minutes);
+      document.getElementById("seconds").textContent = pad(seconds);
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    function shareText() {
+      return "❤️ Nossa contagem regressiva para as férias e o Natal! Faltam " +
+        document.getElementById("days").textContent + " dias para 23/12/2026. 🎄 " + location.href;
+    }
+    document.getElementById("whatsapp").addEventListener("click", () => {
+      window.open("https://wa.me/?text=" + encodeURIComponent(shareText()), "_blank", "noopener");
+    });
+    document.getElementById("share").addEventListener("click", async () => {
+      if (navigator.share) {
+        try { await navigator.share({ title: "Nossa contagem regressiva de Natal", text: shareText(), url: location.href }); } catch (_) {}
+      } else {
+        try { await navigator.clipboard.writeText(shareText()); alert("Mensagem copiada! Agora é só colar onde quiser."); }
+        catch (_) { alert("Copie o endereço desta página para compartilhar."); }
+      }
+    });
+    if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+    }
+  </script>
+</body>
+</html>
